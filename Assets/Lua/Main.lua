@@ -9,7 +9,12 @@ print("[Lua] Main.lua loaded")
 require("Common.Class")
 require("Common.EventBus")
 
+-- 加载配置
+require("Config.item_config")
+require("Config.dialogue_config")
+
 -- 加载业务系统
 require("System.BagSystem")
+require("System.DialogueSystem")
 
 print("[Lua] All modules loaded, Lua ready.")

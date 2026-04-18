@@ -59,6 +59,12 @@ namespace SkierFramework
             }
 
             UpdateAnimation();
+
+            // 快捷键
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                UIManager.Instance.Open(UIType.UIBagView);
+            }
         }
 
         private void FixedUpdate()

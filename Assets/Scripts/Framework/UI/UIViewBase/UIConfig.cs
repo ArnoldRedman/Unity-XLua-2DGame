@@ -49,6 +49,13 @@ namespace SkierFramework
                         {
                             viewType = GetType($"{typeof(UIConfig).Namespace}.{config.uiType}");
                         }
+#if XLUA
+                        // 如果找不到专属 C# 类，使用通用 UILuaView
+                        if (viewType == null)
+                        {
+                            viewType = typeof(UILuaView);
+                        }
+#endif
                         list.Add(new UIConfig
                         {
                             path = config.path,

@@ -70,6 +70,12 @@ namespace SkierFramework
             base.OnClose();
         }
 
+        private void Update()
+        {
+            // 每帧转发给 Lua（用于逐字显示等需要 Update 的功能）
+            LuaUIBridge.Call(_luaView, "OnUpdate");
+        }
+
         public override void OnRelease()
         {
             LuaUIBridge.Destroy(ref _luaView);

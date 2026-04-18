@@ -54,5 +54,12 @@
     "isWindow": true,
     "uiLayer": "NormalLayer",
     "isAutoNavigation": false
+  },
+  {
+    "uiType": "UIDialogueView",
+    "path": "Assets/AssetsPackage/UI/Prefabs/UIDialogueView/UIDialogueView.prefab",
+    "isWindow": true,
+    "uiLayer": "TopLayer",
+    "isAutoNavigation": false
   }
 ]

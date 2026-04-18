@@ -10,6 +10,7 @@ namespace SkierFramework
 		UITestView2,
 		UITestView3,
 		UIBagView,
+		UIDialogueView,
 		Max,
     }
 }

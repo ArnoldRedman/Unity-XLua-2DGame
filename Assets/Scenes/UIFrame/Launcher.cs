@@ -55,6 +55,7 @@ public class Launcher : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // UIManager.Instance.Open(UIType.UILoginView);
-        SceneManager.LoadScene("Game");
+
+        ResourceManager.Instance.LoadSceneAsync("Game");
     }
 }
