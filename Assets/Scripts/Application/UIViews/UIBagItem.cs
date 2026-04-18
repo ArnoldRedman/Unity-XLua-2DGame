@@ -1,3 +1,4 @@
+#if !XLUA
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,3 +97,4 @@ namespace SkierFramework
         }
     }
 }
+#endif

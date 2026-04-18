@@ -38,6 +38,10 @@ function UIBagItem:OnUpdateData(data, index)
     if self.ImgQuality and data.quality then
         self.ImgQuality.color = self:GetQualityColor(data.quality)
     end
+    -- 图标加载
+    if self.ImgIcon and data.icon and data.icon ~= "" then
+        CS.SkierFramework.LuaUIBridge.LoadIcon(self.ImgIcon, data.icon)
+    end
 end
 
 function UIBagItem:OnClick()

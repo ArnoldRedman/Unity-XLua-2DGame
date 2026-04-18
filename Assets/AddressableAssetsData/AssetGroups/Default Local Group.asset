@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Game
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: c1f945e2e8fa8d244a00bf8722cf4126
+    m_Address: Assets/ArtRes/Icons
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f98c3ef50f7c7d949a27c03d70d70572, type: 2}
   m_SchemaSet:

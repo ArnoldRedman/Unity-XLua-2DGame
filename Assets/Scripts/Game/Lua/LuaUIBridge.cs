@@ -117,6 +117,27 @@ namespace SkierFramework
                 luaView = null;
             }
         }
+
+        /// <summary>
+        /// 供 Lua 调用：异步加载 Sprite 并设置到 Image
+        /// Lua 用法: CS.SkierFramework.LuaUIBridge.LoadIcon(image, "icon_potion_hp_s")
+        /// </summary>
+        public static void LoadIcon(UnityEngine.UI.Image image, string address)
+        {
+            if (image == null || string.IsNullOrEmpty(address)) return;
+            try
+            {
+                ResourceManager.Instance.LoadAssetAsync<Sprite>(address, (sprite) =>
+                {
+                    if (image != null && sprite != null)
+                        image.sprite = sprite;
+                });
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"[LuaUIBridge] LoadIcon failed for '{address}': {e.Message}");
+            }
+        }
     }
 }
 #endif

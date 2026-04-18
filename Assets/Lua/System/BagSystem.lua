@@ -302,16 +302,10 @@ end
 --- 初始化背包（加入一些测试道具）
 function BagSystem:Init()
     BagModel:Reset()
-    -- 添加测试道具
-    self:AddItem(1001, 10)  -- 10个小型生命药水
-    self:AddItem(1002, 5)   -- 5个中型生命药水
-    self:AddItem(1003, 8)   -- 8个小型魔力药水
-    self:AddItem(2001, 1)   -- 1把铁剑
-    self:AddItem(2003, 1)   -- 1件皮甲
-    self:AddItem(3001, 25)  -- 25个铁矿石
-    self:AddItem(3002, 12)  -- 12个兽皮
-    self:AddGold(500)       -- 500金币
-    print("[BagSystem] Initialized with test items")
+    -- 初始只给少量基础道具
+    self:AddItem(1001, 3)   -- 3个小型生命药水
+    self:AddGold(100)       -- 100金币
+    print("[BagSystem] Initialized with starter items")
 end
 
 _G.BagSystem = BagSystem

@@ -75,12 +75,23 @@ namespace SkierFramework
             if (player != null) player.StopMovement();
 
 #if XLUA
-            // 调用 Lua: DialogueSystem:StartDialogue(dialogueId, npcName)
+            // 查询 Lua NPC 配置获取动态对话 ID（根据任务状态）
+            // Lua 端: NpcDialogueMap[npcId] 函数返回当前对话 ID
             var luaEnv = LuaEnvManager.Instance?.LuaEnv;
             if (luaEnv != null)
             {
+                // 尝试获取动态对话 ID，失败则用默认值
+                var results = luaEnv.DoString(
+                    string.Format("if NpcDialogueMap and NpcDialogueMap[{0}] then return NpcDialogueMap[{0}]() else return {1} end", npcId, dialogueId),
+                    "NPCGetDialogue");
+                int actualDialogueId = dialogueId;
+                if (results != null && results.Length > 0 && results[0] is long v)
+                    actualDialogueId = (int)v;
+                else if (results != null && results.Length > 0 && results[0] is double d)
+                    actualDialogueId = (int)d;
+
                 luaEnv.DoString(
-                    string.Format("DialogueSystem:StartDialogue({0}, '{1}')", dialogueId, npcName.Replace("'", "\\'")),
+                    string.Format("DialogueSystem:StartDialogue({0}, '{1}')", actualDialogueId, npcName.Replace("'", "\\'")),
                     "NPCInteract");
             }
 #endif
